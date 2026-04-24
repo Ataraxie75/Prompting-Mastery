@@ -22,11 +22,11 @@
   --ink-300: #B3B8C4;
   --ink-200: #D9DBE3;
 
-  /* Accent — bleu nuit (v1) */
-  --accent: #1E3A8A;
-  --accent-hover: #172E6E;
-  --accent-soft: #EEF1FA;
-  --accent-ink: #0E1F4D;
+  /* Accent — Coral from logo */
+  --accent: #F18A64;
+  --accent-hover: #E07954;
+  --accent-soft: #FEF3F0;
+  --accent-ink: #7C2D12;
 
   /* Type scale (fluid) */
   --fs-display: clamp(56px, 8vw, 112px);
