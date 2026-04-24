@@ -231,8 +231,8 @@ body {
 .reveal-delay-2 { transition-delay: .1s; }
 
 /* Logo image */
-.logo-img { height: 64px; width: auto; display: block; }
-.logo-img-lg { height: 128px; width: auto; display: block; }
+.logo-img { height: 128px; width: auto; display: block; }
+.logo-img-lg { height: 256px; width: auto; display: block; }
 
 
 /* ============ HERO ============ */
