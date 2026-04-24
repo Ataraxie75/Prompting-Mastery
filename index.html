@@ -64,107 +64,70 @@
 <section class="section" id="usecases">
   <div class="container">
     <div class="section-head">
-      <div class="section-kicker">Cas d'usage</div>
-      <h2>Trois exemples parmi <em style="font-weight:400;color:var(--accent);font-style:italic;">bien d'autres.</em></h2>
-      <p>Un aperçu de ce que contient le guide. À l'intérieur, vous trouverez des dizaines d'autres prompts pour Word, Excel, Teams et Outlook.</p>
+      <div class="section-kicker">Essayez par vous-même</div>
+      <h2>Voyez Copilot en <em style="font-weight:400;color:var(--accent);font-style:italic;">action.</em></h2>
+      <p>Cliquez sur « Envoyer » et regardez la réponse se construire sous vos yeux — comme dans le vrai Copilot.</p>
     </div>
 
-    <div class="usecases">
-      <div class="usecase">
-        <div class="usecase-badge badge-word">
-          Word
-        </div>
-        <div class="usecase-visual">
-          <div class="uc-stack">
-          <div class="uc-card prompt">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-              Moi
-            </div>
-            « J'ai ce rapport de 80 pages. Résume-le sur trois niveaux de lecture stp. »
-          </div>
-          <div class="uc-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="uc-card result">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
-              Copilot
-            </div>
-            <span class="tag"><span class="dot"></span> Structuré</span><br>
-            L1 <strong>Phrase de synthèse</strong> — 30 secondes<br>
-            L2 <strong>5 points clés</strong> — 1 minute<br>
-            L3 <strong>Détail par section</strong> — 10 minutes
-          </div>
-        </div>
-        </div>
-        <h3>Résumer un long document en trois niveaux de lecture.</h3>
-        <p>Un rapport de 80 pages devient lisible en 30 secondes, une minute, ou dix — selon ce dont vous avez besoin à l'instant.</p>
+    <!-- Tabs -->
+    <div class="copilot-tabs">
+      <button class="copilot-tab active" data-tab="word">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4a2 2 0 012-2h8l6 6v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" stroke="#185ABD" stroke-width="2"/><path d="M14 2v6h6" stroke="#185ABD" stroke-width="2"/></svg>
+        Document long
+      </button>
+      <button class="copilot-tab" data-tab="outlook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="#0078D4" stroke-width="2"/><path d="M3 7l9 6 9-6" stroke="#0078D4" stroke-width="2"/></svg>
+        Fil d'emails
+      </button>
+      <button class="copilot-tab" data-tab="teams">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#5B5FC7" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="#5B5FC7" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#5B5FC7" stroke-width="2"/></svg>
+        Réunion Teams
+      </button>
+    </div>
+
+    <!-- Mobile select -->
+    <select class="copilot-select" id="copilotMobileSelect">
+      <option value="word">📄 Document long</option>
+      <option value="outlook">📧 Fil d'emails</option>
+      <option value="teams">👥 Réunion Teams</option>
+    </select>
+
+    <!-- Simulator -->
+    <div class="copilot-sim">
+      <!-- Title bar -->
+      <div class="copilot-titlebar">
+        <span class="copilot-titlebar-dot" style="background:#FF5F57"></span>
+        <span class="copilot-titlebar-dot" style="background:#FEBC2E"></span>
+        <span class="copilot-titlebar-dot" style="background:#28C840"></span>
+        <span class="copilot-titlebar-app" id="copilotAppName">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" fill="#5B5FC7"/></svg>
+          Copilot dans Word
+        </span>
       </div>
 
-      <div class="usecase">
-        <div class="usecase-badge badge-outlook">
-          Outlook
+      <!-- Response area -->
+      <div class="copilot-body" id="copilotBody">
+        <div class="copilot-placeholder" id="copilotPlaceholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="opacity:.25"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" fill="currentColor"/></svg>
+          <span>Envoyez votre prompt pour voir la magie opérer.</span>
         </div>
-        <div class="usecase-visual">
-          <div class="uc-stack">
-          <div class="uc-card prompt">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-              Moi
-            </div>
-            « Il y a 30 emails dans ce fil. Sors-moi la décision et les prochaines étapes. »
-          </div>
-          <div class="uc-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="uc-card result">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
-              Copilot
-            </div>
-            <span class="tag"><span class="dot"></span> Extraction</span><br>
-            Décision <strong>Devis validé</strong> par le client<br>
-            Action <strong>Répondre pour confirmer</strong><br>
-            Échéance <strong>Mercredi 18h</strong>
-          </div>
-        </div>
-        </div>
-        <h3>Synthétiser immédiatement un fil d'emails complexe.</h3>
-        <p>Entrez dans une conversation de trente échanges et repartez avec la décision, l'action, et la date butoir — en clair.</p>
+        <div class="copilot-response" id="copilotResponse" style="display:none;"></div>
+        <div class="copilot-time-badge" id="copilotTimeBadge" style="display:none;"></div>
       </div>
 
-      <div class="usecase">
-        <div class="usecase-badge badge-teams">
-          Teams
-        </div>
-        <div class="usecase-visual">
-          <div class="uc-stack">
-          <div class="uc-card prompt">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-              Moi
-            </div>
-            « Prends le transcript de cette réu d'une heure et fais un vrai compte-rendu. »
-          </div>
-          <div class="uc-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="uc-card result">
-            <div class="uc-header">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
-              Copilot
-            </div>
-            <span class="tag"><span class="dot"></span> Compte-Rendu</span><br>
-            Objet <strong>Point hebdo — actions</strong><br>
-            Contexte <strong>Résumé en 3 lignes</strong><br>
-            Suites <strong>Responsables + dates</strong>
-          </div>
-        </div>
-        </div>
-        <h3>Transformer des notes brutes en message professionnel.</h3>
-        <p>Vos griffonnages de réunion deviennent un compte-rendu structuré, un email de relance ou une présentation — en un prompt.</p>
+      <!-- Input bar -->
+      <div class="copilot-input-bar">
+        <div class="copilot-prompt-text" id="copilotPrompt">Résume ce rapport sur trois niveaux de lecture : une phrase, cinq points clés, et un détail par section.</div>
+        <button class="copilot-send-btn" id="copilotSendBtn" onclick="startStreaming()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
+
+      <!-- Reset -->
+      <button class="copilot-reset" id="copilotReset" style="display:none;" onclick="resetSimulator()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M1 4v6h6M23 20v-6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Rejouer
+      </button>
     </div>
   </div>
 </section>
@@ -424,6 +387,212 @@
       }
     });
   });
+
+  // ======== COPILOT SIMULATOR ========
+  const copilotData = {
+    word: {
+      app: 'Copilot dans Word',
+      prompt: 'Résume ce rapport sur trois niveaux de lecture : une phrase, cinq points clés, et un détail par section.',
+      response: [
+        { type: 'heading', text: '📋 Synthèse à trois niveaux' },
+        { type: 'label', text: 'Niveau 1 — En une phrase' },
+        { type: 'text', text: 'Le rapport recommande de recentrer la stratégie commerciale sur trois marchés prioritaires et de réduire les coûts opérationnels de 12 % d\'ici Q4.' },
+        { type: 'label', text: 'Niveau 2 — Cinq points clés' },
+        { type: 'bullet', text: '1. Le chiffre d\'affaires a progressé de 8 % sur le semestre, porté par l\'activité B2B.' },
+        { type: 'bullet', text: '2. Les marges se contractent sur le segment retail (−3 points).' },
+        { type: 'bullet', text: '3. Trois marchés identifiés comme prioritaires : DACH, Benelux, Nordics.' },
+        { type: 'bullet', text: '4. Plan de réduction des coûts : renégociation fournisseurs + mutualisation logistique.' },
+        { type: 'bullet', text: '5. Objectif de rentabilité opérationnelle relevé à 15 % pour l\'exercice suivant.' },
+        { type: 'label', text: 'Niveau 3 — Détail par section' },
+        { type: 'text', text: '→ Section 1–3 : Analyse marché et positionnement concurrentiel (pp. 1–28)' },
+        { type: 'text', text: '→ Section 4–6 : Performance financière et projections (pp. 29–55)' },
+        { type: 'text', text: '→ Section 7–8 : Plan opérationnel et recommandations (pp. 56–80)' },
+      ],
+      timeWithout: '45 minutes de lecture',
+      timeWith: '30 secondes'
+    },
+    outlook: {
+      app: 'Copilot dans Outlook',
+      prompt: 'Synthétise ce fil de 30 emails et donne-moi la décision finale, les actions à mener et les échéances.',
+      response: [
+        { type: 'heading', text: '📧 Synthèse du fil — Projet Refonte SI' },
+        { type: 'label', text: 'Décision finale' },
+        { type: 'text', text: 'Le comité a validé le scénario B (migration progressive) avec un budget plafonné à 340 K€. Le prestataire retenu est Capgemini.' },
+        { type: 'label', text: 'Actions à mener' },
+        { type: 'bullet', text: '1. Sophie (DSI) : envoyer le bon de commande avant vendredi 17h.' },
+        { type: 'bullet', text: '2. Marc (Finance) : débloquer la ligne budgétaire et confirmer au contrôleur de gestion.' },
+        { type: 'bullet', text: '3. Julie (Projet) : planifier le kick-off avec Capgemini semaine du 12 mai.' },
+        { type: 'bullet', text: '4. Thomas (Juridique) : relire le contrat-cadre et remonter les réserves sous 48h.' },
+        { type: 'label', text: 'Échéances critiques' },
+        { type: 'text', text: '📅 Vendredi 9 mai — Bon de commande signé' },
+        { type: 'text', text: '📅 Lundi 12 mai — Kick-off projet' },
+        { type: 'text', text: '📅 Mercredi 14 mai — Retour juridique' },
+      ],
+      timeWithout: '25 minutes de tri',
+      timeWith: '15 secondes'
+    },
+    teams: {
+      app: 'Copilot dans Teams',
+      prompt: 'Génère le compte-rendu de cette réunion d\'une heure avec les décisions, les responsables et les prochaines étapes.',
+      response: [
+        { type: 'heading', text: '📝 Compte-rendu — Point hebdo équipe produit' },
+        { type: 'label', text: 'Participants' },
+        { type: 'text', text: 'Léa (PM), Antoine (Dev Lead), Sarah (Design), Karim (QA), Nicolas (CPO)' },
+        { type: 'label', text: 'Décisions prises' },
+        { type: 'bullet', text: '1. Le lancement de la V2 est décalé au 20 mai (initialement prévu le 12).' },
+        { type: 'bullet', text: '2. La fonctionnalité "export PDF" est retirée du scope V2 et reportée en V2.1.' },
+        { type: 'bullet', text: '3. Budget design validé pour les illustrations de l\'onboarding (2 500 €).' },
+        { type: 'label', text: 'Actions à mener' },
+        { type: 'bullet', text: '→ Antoine : finaliser l\'API de notifications push avant mercredi.' },
+        { type: 'bullet', text: '→ Sarah : livrer les maquettes onboarding V2 pour lundi.' },
+        { type: 'bullet', text: '→ Karim : préparer le plan de tests de charge pour jeudi.' },
+        { type: 'bullet', text: '→ Léa : mettre à jour le roadmap Notion et prévenir les stakeholders du décalage.' },
+        { type: 'label', text: 'Prochain point' },
+        { type: 'text', text: 'Mardi 13 mai à 10h — même lien Teams.' },
+      ],
+      timeWithout: '1 heure de réunion + 20 min de rédaction',
+      timeWith: '45 secondes'
+    }
+  };
+
+  let currentTab = 'word';
+  let isStreaming = false;
+  let streamTimeout = null;
+
+  // Tab switching
+  document.querySelectorAll('.copilot-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      if (isStreaming) return;
+      switchTab(tab.dataset.tab);
+    });
+  });
+
+  // Mobile select
+  document.getElementById('copilotMobileSelect').addEventListener('change', (e) => {
+    if (isStreaming) return;
+    switchTab(e.target.value);
+  });
+
+  function switchTab(tabId) {
+    currentTab = tabId;
+    document.querySelectorAll('.copilot-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.copilot-tab[data-tab="${tabId}"]`).classList.add('active');
+    document.getElementById('copilotMobileSelect').value = tabId;
+
+    const data = copilotData[tabId];
+    document.getElementById('copilotAppName').innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" fill="#5B5FC7"/></svg>
+      ${data.app}
+    `;
+    document.getElementById('copilotPrompt').textContent = data.prompt;
+    resetSimulator();
+  }
+
+  function startStreaming() {
+    if (isStreaming) return;
+    isStreaming = true;
+
+    const data = copilotData[currentTab];
+    const placeholder = document.getElementById('copilotPlaceholder');
+    const responseEl = document.getElementById('copilotResponse');
+    const sendBtn = document.getElementById('copilotSendBtn');
+    const resetBtn = document.getElementById('copilotReset');
+    const timeBadge = document.getElementById('copilotTimeBadge');
+
+    placeholder.style.display = 'none';
+    responseEl.style.display = 'block';
+    responseEl.innerHTML = '<span class="copilot-cursor"></span>';
+    sendBtn.disabled = true;
+    sendBtn.style.opacity = '0.3';
+    timeBadge.style.display = 'none';
+
+    let lineIndex = 0;
+
+    function streamNextLine() {
+      if (lineIndex >= data.response.length) {
+        // Done streaming
+        const cursor = responseEl.querySelector('.copilot-cursor');
+        if (cursor) cursor.remove();
+
+        // Show time badge
+        timeBadge.innerHTML = `
+          <div class="time-compare">
+            <span class="time-without">⏱ Sans Copilot : <strong>${data.timeWithout}</strong></span>
+            <span class="time-separator">→</span>
+            <span class="time-with">✨ Avec Copilot : <strong>${data.timeWith}</strong></span>
+          </div>
+        `;
+        timeBadge.style.display = 'block';
+        resetBtn.style.display = 'inline-flex';
+        isStreaming = false;
+        sendBtn.disabled = false;
+        sendBtn.style.opacity = '1';
+        return;
+      }
+
+      const line = data.response[lineIndex];
+      const cursor = responseEl.querySelector('.copilot-cursor');
+
+      let el;
+      if (line.type === 'heading') {
+        el = document.createElement('div');
+        el.className = 'stream-heading';
+        el.textContent = line.text;
+      } else if (line.type === 'label') {
+        el = document.createElement('div');
+        el.className = 'stream-label';
+        el.textContent = line.text;
+      } else if (line.type === 'bullet') {
+        el = document.createElement('div');
+        el.className = 'stream-bullet';
+        el.textContent = line.text;
+      } else {
+        el = document.createElement('div');
+        el.className = 'stream-text';
+        el.textContent = line.text;
+      }
+
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(4px)';
+      responseEl.insertBefore(el, cursor);
+
+      requestAnimationFrame(() => {
+        el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+
+      // Auto-scroll
+      const body = document.getElementById('copilotBody');
+      body.scrollTop = body.scrollHeight;
+
+      lineIndex++;
+      const delay = line.type === 'heading' ? 400 : (line.type === 'label' ? 300 : 120 + Math.random() * 180);
+      streamTimeout = setTimeout(streamNextLine, delay);
+    }
+
+    // Small initial delay before streaming starts
+    streamTimeout = setTimeout(streamNextLine, 500);
+  }
+
+  function resetSimulator() {
+    if (streamTimeout) clearTimeout(streamTimeout);
+    isStreaming = false;
+
+    const placeholder = document.getElementById('copilotPlaceholder');
+    const responseEl = document.getElementById('copilotResponse');
+    const sendBtn = document.getElementById('copilotSendBtn');
+    const resetBtn = document.getElementById('copilotReset');
+    const timeBadge = document.getElementById('copilotTimeBadge');
+
+    placeholder.style.display = 'flex';
+    responseEl.style.display = 'none';
+    responseEl.innerHTML = '';
+    sendBtn.disabled = false;
+    sendBtn.style.opacity = '1';
+    resetBtn.style.display = 'none';
+    timeBadge.style.display = 'none';
+  }
 </script>
 
 </body>
