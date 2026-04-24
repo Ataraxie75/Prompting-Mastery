@@ -505,44 +505,72 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   position: relative;
 }
 .uc-card {
   background: var(--bg-muted);
   border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 11px;
-  color: var(--ink-500);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--ink-700);
   line-height: 1.5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.uc-card.prompt {
+  background: #f8faff;
+  border-color: #e5edff;
+  border-bottom-right-radius: 4px;
+  color: var(--ink-900);
+  align-self: flex-end;
+  width: 90%;
 }
 .uc-card.result {
-  background: var(--bg-elevated);
+  background: #ffffff;
   border-color: var(--border);
+  border-top-left-radius: 4px;
   color: var(--ink-900);
+  align-self: flex-start;
+  width: 95%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
+.uc-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  color: var(--ink-400);
+}
+.uc-card.prompt .uc-header { color: #185ABD; }
+.uc-card.result .uc-header { color: var(--accent); }
+
 .uc-card .tag {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   font-family: 'Geist Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink-400);
-  margin-bottom: 6px;
+  color: var(--accent);
+  margin-bottom: 8px;
 }
-.uc-card.result .tag { color: var(--accent); }
 .uc-card .tag .dot {
   width: 5px; height: 5px; border-radius: 999px; background: currentColor;
 }
 .uc-arrow {
   display: flex;
   justify-content: center;
-  color: var(--accent);
-  margin: -4px 0;
-  transition: transform 0.3s ease;
+  color: var(--border-strong);
+  margin: -8px 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 2;
 }
 
 @keyframes bounceArrow {
@@ -550,16 +578,15 @@ body {
   50% { transform: translateY(4px); }
 }
 
+.usecase:hover .uc-arrow {
+  color: var(--accent);
+}
 .usecase:hover .uc-arrow svg {
   animation: bounceArrow 1.5s ease-in-out infinite;
 }
 
 .usecase:hover .uc-card {
   transform: translateY(-2px);
-}
-
-.uc-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* App specific glows on hover */
