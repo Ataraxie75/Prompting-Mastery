@@ -234,7 +234,6 @@ body {
 .logo-img { height: 128px; width: auto; display: block; }
 .logo-img-lg { height: 256px; width: auto; display: block; }
 
-
 /* ============ HERO ============ */
 .hero {
   position: relative;
@@ -448,16 +447,24 @@ body {
   display: flex;
   flex-direction: column;
 }
-.usecase-num {
-  font-family: 'Geist Mono', monospace;
-  font-size: 12px;
-  color: var(--ink-400);
-  margin-bottom: 24px;
-  letter-spacing: 0.04em;
+.usecase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
 }
+.badge-word { color: #185ABD; background: #E8F1FC; }
+.badge-outlook { color: #0078D4; background: #E5F1FA; }
+.badge-teams { color: #5B5FC7; background: #EBEDF8; }
 .usecase-visual {
-  min-height: 180px;
-  margin-bottom: 28px;
+  min-height: 140px;
+  margin-bottom: 16px;
   position: relative;
   display: flex;
   align-items: center;
@@ -526,6 +533,38 @@ body {
   justify-content: center;
   color: var(--accent);
   margin: -4px 0;
+  transition: transform 0.3s ease;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.usecase:hover .uc-arrow svg {
+  animation: bounceArrow 1.5s ease-in-out infinite;
+}
+
+.usecase:hover .uc-card {
+  transform: translateY(-2px);
+}
+
+.uc-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* App specific glows on hover */
+.usecase:hover:has(.badge-word) .uc-card.result { 
+  box-shadow: 0 8px 24px -8px rgba(24, 90, 189, 0.2); 
+  border-color: rgba(24, 90, 189, 0.3); 
+}
+.usecase:hover:has(.badge-outlook) .uc-card.result { 
+  box-shadow: 0 8px 24px -8px rgba(0, 120, 212, 0.2); 
+  border-color: rgba(0, 120, 212, 0.3); 
+}
+.usecase:hover:has(.badge-teams) .uc-card.result { 
+  box-shadow: 0 8px 24px -8px rgba(91, 95, 199, 0.2); 
+  border-color: rgba(91, 95, 199, 0.3); 
 }
 .uc-row {
   display: flex;
