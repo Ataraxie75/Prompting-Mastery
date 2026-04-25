@@ -192,6 +192,7 @@ body {
   border-color: var(--border-strong);
 }
 .btn-outline:hover { border-color: var(--ink-700); }
+.btn-sm { padding: 8px 12px; font-size: 13px; border-radius: 8px; }
 .btn-lg { padding: 13px 22px; font-size: 15px; border-radius: 12px; }
 .btn-accent {
   background: linear-gradient(to right, #A855F7, #6366F1);
